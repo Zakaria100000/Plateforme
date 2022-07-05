@@ -1,0 +1,127 @@
+/* Header */
+.btn {
+  background-color: #c08552 !important;
+}
+
+.btn::before {
+  background-color: transparent !important;
+}
+
+.slicknav_menu .slicknav_icon-bar {
+  background-color: #c08552 !important;
+}
+
+.header-area .main-menu ul li a {
+  color: #333;
+}
+
+.header-area .main-menu ul li:hover > a {
+  color: #c08552 !important;
+}
+
+.slicknav_menu .slicknav_nav a:hover {
+  color: #c08552 !important;
+}
+
+.header-area .main-menu ul ul.submenu {
+  border-top: 5px solid #c08552;
+}
+/* Scroll up */
+#scrollUp {
+  background-color: #c08552 !important;
+}
+
+/* Footer */
+.footer-area .footer-form form .form-icon button {
+  background-color: #c08552 !important;
+}
+
+.footer-area .footer-tittle ul li a:hover {
+  color: #c08552 !important;
+}
+
+/******** Home page ********/
+.our-services .single-services:hover .services-ion span {
+  color: #c08552 !important;
+}
+
+.our-services .single-services:hover .services-cap h5 a {
+  color: #c08552 !important;
+}
+
+.our-services .single-services .services-cap span {
+  color: #c08552 !important;
+}
+
+/******** Internships page ********/
+.job-category-listing
+  .single-listing
+  .select-Categories
+  .container
+  input:checked
+  ~ .checkmark {
+  background-color: #c08552 !important;
+}
+
+.irs-line {
+  background: linear-gradient(to bottom, #ddd -50%, #fff 150%);
+}
+
+.irs-slider {
+  border: 1px solid #c08552 !important;
+  background-color: #c08552 !important;
+  background: linear-gradient(
+    to bottom,
+    #c08552 0%,
+    #c08552 20%,
+    #c08552 100%
+  ) !important;
+}
+
+.irs-bar {
+  border-top: 1px solid #c08552 !important;
+  border-bottom: 1px solid #c08552 !important;
+  background: #c08552 !important;
+  background: linear-gradient(to top, #c08552 0%, #c08552 100%) !important;
+}
+
+.pb-120 {
+  padding-bottom: 20px;
+}
+
+.pagination-area .page-link:hover {
+  color: #c08552 !important;
+}
+
+/******** Internship details page ********/
+.job-post-company .single-job-items:hover {
+  box-shadow: none;
+}
+
+.apply-btn a.btn {
+  color: #fff !important;
+}
+
+/* */
+.login-title {
+  font-size: 27px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.form-login .form-group {
+  margin-bottom: 30px;
+}
+
+.form-login .form-control {
+  border: 1px solid #e5e6e9;
+  border-radius: 0px;
+  height: 48px;
+  padding-left: 18px;
+  font-size: 13px;
+  background: transparent;
+}
+
+.form-login label {
+  font-size: 14px;
+}

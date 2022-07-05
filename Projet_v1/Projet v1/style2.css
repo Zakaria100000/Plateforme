@@ -1,0 +1,11 @@
+.canvaframe {
+  width: 800px;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/pathseg@1.2.1/pathseg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/poly-decomp@0.3.0/build/decomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.js"></script>
+    
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+      integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+
+ <div id="rond"></div>
+    <div class="buttondiv">
+      <button onclick="changevaropened() " class="btn">
+        Boite a outils
+      </button>
+      <button class="btn">Chart</button>
+      <button class="btn" onclick="changevaropened2() ">Information</button>
+    </div>
+
+
+    <div class="toolbox" id="toolbox" >
+      <div id="navtoolbox" onmousedown="bougertb()">
+        <button onClick="minimizetb()" id="mini" class="btntest">
+        <img src="./assets/image 11.png" />
+      </button>
+      <button id="closeB" onClick="closetb()"  class="btntest">
+        <img src="./assets/image 8.png" />
+      </button></div>
+      
+      <div class="elementbox" id="elementbox">
+        <div class="objettoolbox">
+          <button type="submit" class = "buttontb buttontb2" onmousedown="Creation()" onmouseup="creernon()">
+          <div class="Bouleimg" id="bouleimg"></div></button>
+          <p class="titre">Boule</p>
+          <div class="massetb" >
+            <p>Masse(g)</p>
+            <input type="number" id="masscreationrond" value="50"/>
+          </div>
+          <div class="massetb">
+            <p>Couleur</p>
+            <input type="color" id="colorpickertb"/>
+          </div>
+          <div class="massetb">
+            <p>Rayon(cm)</p>
+            <input type="number" id="rayoncreationrond" value="50" max="300"/>
+          </div>
+       
+        </div>
+     <div class="objettoolbox">
+          <button class="buttontb buttontb1" onmousedown="Creation()" onmouseup="creernon()">
+           <div class="carretoolbox"></div>
+          </button>
+         
+          <p class="titre">Carée</p>
+          <div class="massetb">
+            <p>Masse(g)</p>
+            <input type="number" value="50" />
+          </div>
+          <div class="massetb">
+            <p>Couleur</p>
+            <input type="color" />
+          </div>
+          <div class="massetb">
+            <p>hauteur(cm)</p>
+            <input type="number" value="50"/>
+          </div>
+          <div class="massetb">
+            <p>largeur(cm)</p>
+            <input type="number" value="50"/>
+          </div>
+        </div> 
+       
+        <div class="objettoolbox">
+          <button onclick="supp()" class="buttontb buttontb2" >
+            <div class="fil lienf" id="filimglien">
+            </div>
+            <div class="springtest springl" id="ressortimglien">
+              <div class="testlien testlienl"></div>
+              <div class="testlien p1 testlienl"></div>
+              <div class="testlien p2 testlienl"></div>
+              <div class="testlien p6 testlienl"></div>
+              <div class="testlien p7 testlienl"></div>
+              <div class="testlien2 testlienl2"></div>
+              <div class="testlien2 testlienl2 p3"></div>
+              <div class="testlien2 testlienl2 p4"></div>
+              <div class="testlien2 testlienl2 p5"></div>
+            </div>
+            
+          </button>
+          <p class="titre">Lien</p>
+          <div class="massetb">
+            <p>Ressort</p>
+            <input type="checkbox" id="ressortlien" onclick="checkbox1()" />
+          </div>
+          <div class="massetb">
+            <p>Fil</p>
+            <input type="checkbox" id="fillien" onclick="checkbox()" />
+          </div>
+          <div class="massetb" id="tbklien">
+            <p>K</p>
+            <input type="number" id="klien"  value="0.001" max="1"/>
+          </div>
+          <div class="massetb">
+            <p>Longueur</p>
+            <input type="number" id="lienlongueur" value="300"/>
+          </div>
+          <div class="massetb">
+            <p>Couleur</p>
+            <input type="color" id="liencouleur"/>
+          </div>
+        </div>
+        <div class="objettoolbox">
+          <button onclick="supp2()" class="buttontb buttontb2" >
+            <div class="springtest" id="ressortimgancrage">
+              <div class="testlien testliena"></div>
+              <div class="testlien testliena p1"></div>
+              <div class="testlien testliena p2"></div>
+              <div class="testlien testliena p6"></div>
+              <div class="testlien testliena p7"></div>
+              <div class="testlien2 testliena2"></div>
+              <div class="testlien2 testliena2 p3"></div>
+              <div class="testlien2 testliena2  p4"></div>
+              <div class="testlien2 testliena2 p5"></div>
+              <div class="boulespring" id="bouleancrage2"></div>
+            </div>
+            <div class="fil" id="filimgancrage">
+              <div class="boulefil" id="bouleancrage1"></div>
+            </div></button>
+            
+          <p class="titre">Point d'ancrage</p>
+
+
+
+          <div class="massetb">
+            <p>Ressort</p>
+            <input type="checkbox" id="ressortancrage" onclick="checkbox3()" />
+          </div>
+          <div class="massetb">
+            <p>Fil</p>
+            <input type="checkbox" id="filancrage" onclick="checkbox2()" />
+          </div>
+          <div class="massetb" id="tbkancrage">
+            <p>K</p>
+            <input type="number" id="kancrage"  value="0.001" max="1"/>
+          </div>
+
+
+          <div class="massetb">
+            <p>Couleur</p>
+            <input type="color" id="ancragecouleur" />
+          </div>
+          <div class="massetb">
+            <p>Longueur</p>
+            <input type="number" id="ancragelongeur" value="100"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="playpause" id="playpause">
+      <div class="butt"></div>
+    </div>
+    
+
+ <!--    <div class="buttonsim">
+      <div class="buttonwrapper">
+        <button onclick="displaysimulation()">Simulation</button>
+        <button onclick="displayGraph()">Graph</button>
+        <button onclick="displaygraphandsimulation()">Simu+Graph</button>
+        <button onclick="pausengine()">Pause</button>
+        <button onclick="unpauseengine()">Run</button>
+
+        <button onclick="download()">Download</button>
+        <button onclick="changeheight()">Change</button>
+        <button onclick="mettre()">Mettre</button>
+        <button onclick="retirer()">sup</button>
+        <button onclick="createhtmlfromarray()">Retirer</button>
+        <button onclick="supp2()">Anchor</button>
+        <button onmousedown="Creation()" onmouseup="creernon()" >Créer</button>
+        <button onclick="supp()">Lien</button>
+      
+        <button onclick="circle()">Circle</button>
+        <input type="color" id="colorpickertb" >
+
+      </div>
+
+      <div class="graphchartjs">
+        <div class="chartwrapper">
+          <div class="graphdessin" id="graphdessin">
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- <img src="./circle.png" id="rond" alt=""> -->
+   
+    <!-- <div id="carre"></div> -->
+    <!-- <div class="ongletcreation">
+      <button onclick="edit()">Edit</button>
+      <div class="ongletcreationwrapper" id="ongletcreationwrapper"></div>
+    </div>
+
+    <div class="ongletgraphparam">
+      <div class="btn">
+        <button onclick="affichagegraph()">Graph</button>
+        <button onclick="affchageparam()">Parametre</button>
+      </div>
+      <div class="ongletgraph" id="ongletgraph">
+        <div class="ongletgraphwrapper"></div>
+      </div>
+
+      <div class="ongletparam" id="ongletparam">
+        
+        <div class="ongletparamwrapper"></div>
+      </div> -->
+    </div>
+    <canvas
+      id="MatterCanva"
+      onmousedown="clickoncanva()"
+      onmouseup="mouseUp()"
+    ></canvas>
+
+    <div class="menu">
+      <div class = "sousmenu edit " onclick="editmenu()"><p>edit</p></div>
+      <div class="sousmenu" onclick="dupliquermenu()">dupliquer</div>
+      <div class="sousmenu supprimer" onclick="suprimmermenu()">supprimer</div>
+
+    </div>
+
+    <div class="editmenu" id="editmenu">
+      
+        <input id="editcolor" type="color" >
+  
+    <input id="editradius" type="number" max="100">
+     <button onclick="editfct()">Edit</button>
+    </div>  
+
+      <div id="bg-black">
+    <div id="noobject">  <img class="redx" src="./assets/768px-Red_X.svg.png" alt="red-x">
+        <div class="noobject">
+        
+          <p id="texte-p">Pas d'objet séléctionné</p>
+        </div>
+     
+    </div>
+  </div>
+
+  <div class="informationpage" id="informationpage">
+    <div id="infotoolbox" onmousedown="bougertb()">
+      <button onClick="minimizeinfo()" id="mini" class="btntest">
+      <img src="./assets/image 11.png" />
+    </button>
+    <button id="closeB" onClick="closeinfo()"  class="btntest">
+      <img src="./assets/image 8.png" />
+    </button></div>
+
+
+    <div id="elementboxinformation">
+  
+  <div class="spanEB"> 
+  
+    
+
+    <span><img src="./assets/vitesse.png" alt="">Vitesse</span>
+    <span> <img src="./assets/angle.png" alt="">Angle</span>
+   <span> <img src="./assets/poids.png" alt="">Poids</span>
+  </div>
+  <div class="egaleEb">
+    <span>=</span><span>=</span><span>=</span>
+  </div>
+  <div class="EBvalues">
+    <span id="span1">  -</span><span id="span2">-</span><span id="span3">-</span>
+  </div>
+  </div>
+</div>
+  <img onclick="sauvegarder()" class="save-img-button" src="./assets/save.png" alt="">
+  <div class="arrow-box" onclick="reset()">
+    <div class="arrow-round"></div>
+  </div>
+
+<!-- 
+  <div class="popup" id="popup"></div> -->
+<script>
+
+  
+  </script> 
+  
+    <script src="/node_modules/matter-js/build/matter.js"></script>
+    <script src="test.js"></script>
+  </body>
+</html>
+
